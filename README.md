@@ -1,9 +1,12 @@
-# Slide-R 
-[![Build Status](https://travis-ci.org/RomiC/slide-r.svg?branch=master)](https://travis-ci.org/RomiC/slide-r)
+# Slide-R [![Build Status](https://travis-ci.org/RomiC/slide-r.svg?branch=master)](https://travis-ci.org/RomiC/slide-r)
 
 A small React component to create a responsive slider in your app. 
 It was created to have minimum calculation in JS. Layout is totally
 controlled over css.
+
+:exclamation: Pls, be aware it's an early alpha-version.
+Almost proof-of-concept. I will work further on improovements
+and stability. But PR's and issues are welcome.
 
 ## Example
 
