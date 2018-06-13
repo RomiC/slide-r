@@ -1,0 +1,60 @@
+{
+  "name": "slide-r",
+  "version": "1.0.0",
+  "description": "Resposive slider component for React",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "tsc",
+    "build:css": "lessc src/styles.less dist/styles.css",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomiC/slide-r.git"
+  },
+  "keywords": [
+    "react",
+    "slider",
+    "responsive"
+  ],
+  "author": "Roman Charugin <i@charugin.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomiC/slide-r/issues"
+  },
+  "homepage": "https://github.com/RomiC/slide-r#readme",
+  "devDependencies": {
+    "@types/jest": "^23.0.2",
+    "@types/react": "^16.3.17",
+    "jest": "^23.1.0",
+    "less": "^3.0.4",
+    "react": "^16.0.0",
+    "react-test-renderer": "^16.4.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "peerDependencies": {
+    "react": "^15.3.0 || ^16.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "../tsconfig.json"
+      }
+    },
+    "rootDir": "tests/",
+    "testRegex": "\\.spec\\.(js|jsx|ts|tsx)$"
+  }
+}
