@@ -1,6 +1,6 @@
 {
-  "name": "slide-r",
-  "version": "1.0.0-alpha",
+  "name": "react-sldr",
+  "version": "1.0.0-alpha.1",
   "description": "Resposive slider component for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,23 +38,5 @@
   },
   "peerDependencies": {
     "react": "^15.3.0 || ^16.0.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "../tsconfig.json"
-      }
-    },
-    "rootDir": "tests/",
-    "testRegex": "\\.spec\\.(js|jsx|ts|tsx)$"
   }
 }
