@@ -24,6 +24,16 @@ interface SliderState {
 }
 
 export default class Slider extends React.Component<SliderProps, SliderState> {
+  root: HTMLDivElement | null = null;
+  wrapper: HTMLElement | null = null;
+
+  /**
+   * Current amount of visible slides.
+   * Calculate automatically upon the current
+   * width of container and wrapper element
+   */
+  slidesPerView: number = 0;
+
   state = {
     currentSlide: 0
   };
@@ -40,12 +50,46 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
 
   prevSlide: MouseEventHandler = () => this.goTo(this.state.currentSlide - 1);
 
+  onWindowResize = (() => {
+    let timer = 0;
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      timer = setTimeout(() => {
+        if (this.root && this.wrapper) {
+          const slidesPerView = Math.round(this.root.offsetWidth / this.wrapper.offsetWidth);
+
+          if (slidesPerView !== this.slidesPerView) {
+            this.slidesPerView = slidesPerView;
+          }
+        }
+      }, 300);
+    };
+  })()
+
+  componentDidMount() {
+    this.onWindowResize();
+    window.addEventListener('resize', this.onWindowResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
+  }
+
   render() {
     const {className, children} = this.props;
     const {currentSlide} = this.state;
 
     return (
-      <div className={`slider ${className || ''}`}>
+      <div
+        className={`slider ${className || ''}`}
+        ref={(container) => {
+          this.root = container;
+          this.wrapper = container ? container.querySelector('.slider__wrapper') : null;
+        }}>
         <div
           className="slider__wrapper"
           style={{
