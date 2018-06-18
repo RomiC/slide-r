@@ -1,6 +1,6 @@
 {
   "name": "react-sldr",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Resposive slider component for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
