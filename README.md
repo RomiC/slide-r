@@ -34,5 +34,5 @@ There are few options available:
 | Parameter | Type | Description |
 |:---|:---|:---|
 | className | `String` | (not required) Additional classname you can append to the basic root element class `slider` |
-| controls | `Boolean` | (default `true`) Show/hide control elements |
-| slidesAtOnce | `Number` | (default: 1) Number of slides to scroll at once |
+| controls | `Boolean` | (default: `true`) Show/hide control elements |
+| slidesAtOnce | `Number` | (default: `1`) Number of slides to scroll at once |

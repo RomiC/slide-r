@@ -7,3 +7,4 @@ jest.config.js
 demo
 .cache
 npm-shrinkwrap.json
+*.tgz
