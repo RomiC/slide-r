@@ -8,7 +8,9 @@ let slides = null;
 
 beforeEach(() => {
   props = {
-    slidesAtOnce: 1
+    className: 'custom-slider-class',
+    controls: false,
+    slidesAtOnce: 2
   };
   slides = [
     <img key="1" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1" />,
@@ -21,6 +23,11 @@ beforeEach(() => {
 });
 
 test('shoud render component', () => {
+  const component = renderer.create(<Slider>{slides}</Slider>).toJSON();
+  expect(component).toMatchSnapshot();
+});
+
+test('should render component with custom props', () => {
   const component = renderer.create(<Slider {...props}>{slides}</Slider>).toJSON();
   expect(component).toMatchSnapshot();
 });
