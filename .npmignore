@@ -6,3 +6,4 @@ tsconfig.json
 jest.config.js
 demo
 .cache
+npm-shrinkwrap.json
