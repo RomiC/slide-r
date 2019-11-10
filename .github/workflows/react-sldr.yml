@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  test:
+    name: Running all tests
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Setup NodeJs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Installing deps
+        run: npm install
+      - name: Running tests
+        run: npm test
