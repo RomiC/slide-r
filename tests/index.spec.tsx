@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import Slider from '../src';
 
 let props: React.ComponentProps<typeof Slider>;
-let slides = [
+const slides = [
   <img key="1" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1" />,
   <img key="2" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2" />,
   <img key="3" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3" />,

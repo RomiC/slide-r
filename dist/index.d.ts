@@ -30,6 +30,10 @@ interface SliderState {
     offsetX: number;
 }
 export default class Slider extends PureComponent<SliderProps, SliderState> {
+    readonly state: {
+        currentSlide: number;
+        offsetX: number;
+    };
     private root;
     private wrapper;
     /**
@@ -40,15 +44,11 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
     private slidesPerView;
     private isTouched;
     private lastEventCoordinate;
-    readonly state: {
-        currentSlide: number;
-        offsetX: number;
-    };
+    private onWindowResize;
     private goTo;
     private nextSlide;
     private prevSlide;
     private calculateSlidesPerView;
-    private onWindowResize;
     private onRef;
     private onPointerDown;
     /**

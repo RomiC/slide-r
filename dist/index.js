@@ -11,6 +11,10 @@ const react_1 = __importStar(require("react"));
 class Slider extends react_1.PureComponent {
     constructor() {
         super(...arguments);
+        this.state = {
+            currentSlide: 0,
+            offsetX: 0
+        };
         this.root = null;
         this.wrapper = null;
         /**
@@ -21,10 +25,15 @@ class Slider extends react_1.PureComponent {
         this.slidesPerView = 0;
         this.isTouched = false;
         this.lastEventCoordinate = 0;
-        this.state = {
-            currentSlide: 0,
-            offsetX: 0
-        };
+        this.onWindowResize = (() => {
+            let timer = 0;
+            return () => {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = window.setTimeout(this.calculateSlidesPerView, 300);
+            };
+        })();
         this.goTo = (slideIndex) => this.setState({
             currentSlide: slideIndex,
             offsetX: -100 * Math.max(Math.min(slideIndex, this.props.children.length), 0)
@@ -41,15 +50,6 @@ class Slider extends react_1.PureComponent {
                 }
             });
         };
-        this.onWindowResize = (() => {
-            let timer = 0;
-            return () => {
-                if (timer) {
-                    clearTimeout(timer);
-                }
-                timer = setTimeout(this.calculateSlidesPerView, 300);
-            };
-        })();
         this.onRef = (container) => {
             this.root = container;
             this.wrapper = container
@@ -97,13 +97,13 @@ class Slider extends react_1.PureComponent {
     render() {
         const { className, controls = true, children } = this.props;
         const { offsetX } = this.state;
-        return (react_1.default.createElement("div", { className: `slider ${className || ''}`, onPointerDown: this.onPointerDown, onPointerMove: this.onPointerMove, onPointerUp: this.onPointerUp, onPointerCancel: this.onPointerUp, ref: this.onRef },
-            react_1.default.createElement("div", { className: `slider__wrapper${this.isTouched ? ' slider__wrapper--draggable' : ''}`, style: { transform: `translate3d(${offsetX}%,0,0)` } },
-                react_1.default.createElement("ul", { className: "slider__list" }, react_1.Children.map(children, (child) => (react_1.default.createElement("li", { className: "slider__item", draggable: false }, child))))),
-            controls && (react_1.default.createElement("div", { className: "slider__controls" },
-                react_1.default.createElement("button", { type: "button", className: "slider__control slider__control--prev", onClick: this.prevSlide }, "\u2190"),
+        return (react_1.default.createElement("div", { className: `sldr ${className || ''}`, onPointerDown: this.onPointerDown, onPointerMove: this.onPointerMove, onPointerUp: this.onPointerUp, onPointerCancel: this.onPointerUp, ref: this.onRef },
+            react_1.default.createElement("div", { className: `sldr__wrapper${this.isTouched ? ' sldr__wrapper--draggable' : ''}`, style: { transform: `translate3d(${offsetX}%,0,0)` } },
+                react_1.default.createElement("ul", { className: "sldr__list" }, react_1.Children.map(children, (child) => (react_1.default.createElement("li", { className: "sldr__item", draggable: false }, child))))),
+            controls && (react_1.default.createElement("div", { className: "sldr__controls" },
+                react_1.default.createElement("button", { type: "button", className: "sldr__control sldr__control--prev", onClick: this.prevSlide }, "\u2190"),
                 "\u00A0",
-                react_1.default.createElement("button", { type: "button", className: "slider__control slider__control--next", onClick: this.nextSlide }, "\u2192")))));
+                react_1.default.createElement("button", { type: "button", className: "sldr__control sldr__control--next", onClick: this.nextSlide }, "\u2192")))));
     }
 }
 exports.default = Slider;

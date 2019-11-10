@@ -8,8 +8,12 @@
     "build": "npm run build:js && npm run build:css",
     "build:js": "tsc",
     "build:css": "lessc src/styles.less dist/styles.css",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "tslint --fix -p ./tsconfig.json",
+    "lint:css": "stylelint --fix src/*.less",
     "dev": "parcel serve example/index.html --port 8888 --out-dir example/output",
-    "test": "jest"
+    "test": "jest",
+    "test:update": "npm test -- --updateSnapshot"
   },
   "repository": {
     "type": "git",
@@ -36,8 +40,11 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-test-renderer": "^16.11.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-standard": "^19.0.0",
     "ts-jest": "^24.1.0",
     "tslint": "^5.20.1",
+    "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.7.2"
   },
   "peerDependencies": {

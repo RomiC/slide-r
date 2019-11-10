@@ -2,14 +2,14 @@
 
 exports[`shoud render component 1`] = `
 <div
-  className="slider "
+  className="sldr "
   onPointerCancel={[Function]}
   onPointerDown={[Function]}
   onPointerMove={[Function]}
   onPointerUp={[Function]}
 >
   <div
-    className="slider__wrapper"
+    className="sldr__wrapper"
     style={
       Object {
         "transform": "translate3d(0%,0,0)",
@@ -17,10 +17,10 @@ exports[`shoud render component 1`] = `
     }
   >
     <ul
-      className="slider__list"
+      className="sldr__list"
     >
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -28,7 +28,7 @@ exports[`shoud render component 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -36,7 +36,7 @@ exports[`shoud render component 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -44,7 +44,7 @@ exports[`shoud render component 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -52,7 +52,7 @@ exports[`shoud render component 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -60,7 +60,7 @@ exports[`shoud render component 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -70,10 +70,10 @@ exports[`shoud render component 1`] = `
     </ul>
   </div>
   <div
-    className="slider__controls"
+    className="sldr__controls"
   >
     <button
-      className="slider__control slider__control--prev"
+      className="sldr__control sldr__control--prev"
       onClick={[Function]}
       type="button"
     >
@@ -81,7 +81,7 @@ exports[`shoud render component 1`] = `
     </button>
      
     <button
-      className="slider__control slider__control--next"
+      className="sldr__control sldr__control--next"
       onClick={[Function]}
       type="button"
     >
@@ -93,14 +93,14 @@ exports[`shoud render component 1`] = `
 
 exports[`should render component with custom props 1`] = `
 <div
-  className="slider custom-slider-class"
+  className="sldr custom-slider-class"
   onPointerCancel={[Function]}
   onPointerDown={[Function]}
   onPointerMove={[Function]}
   onPointerUp={[Function]}
 >
   <div
-    className="slider__wrapper"
+    className="sldr__wrapper"
     style={
       Object {
         "transform": "translate3d(0%,0,0)",
@@ -108,10 +108,10 @@ exports[`should render component with custom props 1`] = `
     }
   >
     <ul
-      className="slider__list"
+      className="sldr__list"
     >
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -119,7 +119,7 @@ exports[`should render component with custom props 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -127,7 +127,7 @@ exports[`should render component with custom props 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -135,7 +135,7 @@ exports[`should render component with custom props 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -143,7 +143,7 @@ exports[`should render component with custom props 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
@@ -151,7 +151,7 @@ exports[`should render component with custom props 1`] = `
         />
       </li>
       <li
-        className="slider__item"
+        className="sldr__item"
         draggable={false}
       >
         <img
