@@ -7,8 +7,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    touch-action: none;
     transition: transform 300ms ease-out;
     width: 20%;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     @media (max-width: 540px) {
       width: 33.3333%;
@@ -16,6 +22,11 @@
 
     @media (max-width: 320px) {
       width: 50%;
+    }
+
+    &--draggable {
+      transition-duration: 0ms;
+      transition-timing-function: linear;
     }
   }
 
@@ -27,9 +38,14 @@
     white-space: nowrap;
   }
 
-  &__list > * {
+  &__item {
     display: inline-block;
     width: 100%;
+  }
+
+  &__item > * {
+    width: 100%;
+    -webkit-user-drag: none;
   }
 
   &__controls {

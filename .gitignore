@@ -67,4 +67,4 @@ typings/
 .serverless
 
 .cache
-demo/output
+example/output

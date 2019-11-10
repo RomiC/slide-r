@@ -3,6 +3,10 @@
 exports[`shoud render component 1`] = `
 <div
   className="slider "
+  onPointerCancel={[Function]}
+  onPointerDown={[Function]}
+  onPointerMove={[Function]}
+  onPointerUp={[Function]}
 >
   <div
     className="slider__wrapper"
@@ -15,24 +19,54 @@ exports[`shoud render component 1`] = `
     <ul
       className="slider__list"
     >
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"
-      />
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"
+        />
+      </li>
     </ul>
   </div>
   <div
@@ -60,6 +94,10 @@ exports[`shoud render component 1`] = `
 exports[`should render component with custom props 1`] = `
 <div
   className="slider custom-slider-class"
+  onPointerCancel={[Function]}
+  onPointerDown={[Function]}
+  onPointerMove={[Function]}
+  onPointerUp={[Function]}
 >
   <div
     className="slider__wrapper"
@@ -72,24 +110,54 @@ exports[`should render component with custom props 1`] = `
     <ul
       className="slider__list"
     >
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"
-      />
-      <img
-        src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"
-      />
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"
+        />
+      </li>
+      <li
+        className="slider__item"
+        draggable={false}
+      >
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"
+        />
+      </li>
     </ul>
   </div>
 </div>
