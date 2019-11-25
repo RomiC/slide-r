@@ -11,6 +11,10 @@ interface SliderProps {
    */
   className?: string;
   /**
+   * Custom list of elements classNames
+   */
+  classNames?: SliderClassNames;
+  /**
    * Show next/prev slide control buttons
    * @default true
    */
@@ -40,6 +44,26 @@ interface SliderState {
    */
   offsetX: number;
 }
+
+interface SliderClassNames {
+  root: string;
+  wrapper: string;
+  list?: string;
+  item?: string;
+  controls?: string;
+  controlPrev?: string;
+  controlNext?: string;
+}
+
+const defaultClassNames: SliderClassNames = {
+  root: 'sldr',
+  wrapper: 'sldr__wrapper',
+  list: 'sldr__list',
+  item: 'sldr__item',
+  controls: 'sldr__controls',
+  controlPrev: 'sldr__control sldr__control--prev',
+  controlNext: 'sldr__control sldr__control--next'
+};
 
 export default class Slider extends PureComponent<SliderProps, SliderState> {
   readonly state = {
@@ -72,18 +96,22 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
     };
   })();
 
-  private goTo: (slideIndex: number) => void = (slideIndex) =>
+  private goTo: (slideIndex: number) => void = (slideIndex) => {
+    const nextSlide = Math.max(
+      Math.min(slideIndex, this.props.children.length),
+      0
+    );
     this.setState({
-      currentSlide: slideIndex,
-      offsetX:
-        -100 * Math.max(Math.min(slideIndex, this.props.children.length), 0)
-    })
+      currentSlide: nextSlide,
+      offsetX: -100 * nextSlide
+    });
+  };
 
   private nextSlide: MouseEventHandler = () =>
-    this.goTo(this.state.currentSlide + (this.props.slidesAtOnce || 1))
+    this.goTo(this.state.currentSlide + (this.props.slidesAtOnce || 1));
 
   private prevSlide: MouseEventHandler = () =>
-    this.goTo(this.state.currentSlide - (this.props.slidesAtOnce || 1))
+    this.goTo(this.state.currentSlide - (this.props.slidesAtOnce || 1));
 
   private calculateSlidesPerView = (): void => {
     requestAnimationFrame(() => {
@@ -97,21 +125,20 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
         }
       }
     });
-  }
+  };
 
   private onRef: (container: HTMLDivElement) => void = (container) => {
+    const { wrapper } = this.props.classNames || defaultClassNames;
     this.root = container;
-    this.wrapper = container
-      ? container.querySelector('.sldr__wrapper')
-      : null;
-  }
+    this.wrapper = container ? container.querySelector(`.${wrapper}`) : null;
+  };
 
   private onPointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
     this.lastEventCoordinate = event.pageX;
     this.setState({
       isTouched: true
     });
-  }
+  };
 
   /**
    * Calculate offset in percentage
@@ -131,14 +158,18 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
 
   private onPointerMove: PointerEventHandler<HTMLDivElement> = (event) => {
     if (this.state.isTouched) {
-      const { offsetX } = this.state;
-      const offsetDelta = this.calcOffset(event.pageX);
+      const { pageX } = event;
 
-      this.setState({
-        offsetX: offsetX + offsetDelta
+      requestAnimationFrame(() => {
+        const { offsetX } = this.state;
+        const offsetDelta = this.calcOffset(pageX);
+
+        this.setState({
+          offsetX: offsetX + offsetDelta
+        });
       });
     }
-  }
+  };
 
   private onPointerUp: PointerEventHandler<HTMLDivElement> = () => {
     this.lastEventCoordinate = 0;
@@ -146,7 +177,7 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
       currentSlide: Math.round(Math.abs(this.state.offsetX) / 100),
       isTouched: false
     });
-  }
+  };
 
   componentDidMount() {
     this.onWindowResize();
@@ -160,10 +191,14 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
   render() {
     const { className, controls = true, children } = this.props;
     const { offsetX, isTouched } = this.state;
+    const classNames: SliderClassNames = {
+      ...defaultClassNames,
+      ...this.props.classNames
+    };
 
     return (
       <div
-        className={`sldr ${className || ''}`}
+        className={`${classNames.root} ${className || ''}`}
         onPointerDown={this.onPointerDown}
         onPointerMove={this.onPointerMove}
         onPointerUp={this.onPointerUp}
@@ -171,14 +206,14 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
         ref={this.onRef}
       >
         <div
-          className={`sldr__wrapper${
-            isTouched ? ' sldr__wrapper--draggable' : ''
-            }`}
+          className={`${classNames.wrapper}${
+            isTouched ? ` ${classNames.wrapper}--draggable` : ''
+          }`}
           style={{ transform: `translate3d(${offsetX}%,0,0)` }}
         >
-          <ul className="sldr__list">
+          <ul className={classNames.list}>
             {Children.map(children, (child) => (
-              <li className="sldr__item" draggable={false}>
+              <li className={classNames.item} draggable={false}>
                 {child}
               </li>
             ))}
@@ -186,18 +221,18 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
         </div>
 
         {controls && (
-          <div className="sldr__controls">
+          <div className={classNames.controls}>
             <button
-              type="button"
-              className="sldr__control sldr__control--prev"
+              type='button'
+              className={classNames.controlPrev}
               onClick={this.prevSlide}
             >
               ←
             </button>
             &nbsp;
             <button
-              type="button"
-              className="sldr__control sldr__control--next"
+              type='button'
+              className={classNames.controlNext}
               onClick={this.nextSlide}
             >
               →

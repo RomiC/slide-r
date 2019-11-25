@@ -9,14 +9,14 @@ class App extends PureComponent {
   render() {
     return (
       <div className="app">
-        <Slider>
-          <div className="app__slide">slide 1</div>
-          <div className="app__slide app__slide--light">slide 2</div>
-          <div className="app__slide">slide 3</div>
-          <div className="app__slide app__slide--light">slide 4</div>
-          <div className="app__slide">slide 5</div>
-          <div className="app__slide app__slide--light">slide 6</div>
-          <div className="app__slide">slide 7</div>
+        <Slider className="my-slider">
+          <div className="my-slider__slide">slide 1</div>
+          <div className="my-slider__slide my-slider__slide--light">slide 2</div>
+          <div className="my-slider__slide">slide 3</div>
+          <div className="my-slider__slide my-slider__slide--light">slide 4</div>
+          <div className="my-slider__slide">slide 5</div>
+          <div className="my-slider__slide my-slider__slide--light">slide 6</div>
+          <div className="my-slider__slide">slide 7</div>
         </Slider>
       </div>
     );

@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
+    "custom-property-pattern": "composes",
     "number-leading-zero": "always"
   },
   "ignoreFiles": "!src/**/*.less"

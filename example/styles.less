@@ -1,16 +1,28 @@
 .app {
-  display: block;
+	display: block;
+}
 
-  &__slide {
-    background: gray;
-    align-items: center;
-    display: flex;
-    height: 50px;
-    justify-content: center;
-    width: 100%;
+.my-slider {
+	&__slide {
+		background: gray;
+		align-items: center;
+		display: flex;
+		height: 50px;
+		justify-content: center;
+		width: 100%;
 
-    &--light {
-      background: lightgrey;
-    }
-  }
+		&--light {
+			background: lightgrey;
+		}
+	}
+
+	.sldr__wrapper {
+		@media (max-width: 540px) {
+			width: 33.3333%;
+		}
+
+		@media (max-width: 320px) {
+			width: 50%;
+		}
+	}
 }

@@ -68,3 +68,4 @@ typings/
 
 .cache
 example/output
+dist

@@ -1,22 +1,16 @@
 {
   "defaultSeverity": "error",
-  "extends": [
-    "tslint:recommended",
-    "tslint-eslint-rules"
-  ],
+  "extends": ["tslint:recommended", "tslint-eslint-rules"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "comment-format": {
-      "options": [
-        "check-space"
-      ],
+      "options": ["check-space"],
       "severity": "warning"
     },
     "eofline": false,
     "interface-name": false,
     "max-line-length": {
-      "options": [
-        120
-      ]
+      "options": [120]
     },
     "member-access": false,
     "member-ordering": {
@@ -47,15 +41,11 @@
       "severity": "warning"
     },
     "no-multi-spaces": {
-      "options": [
-        true
-      ],
+      "options": [true],
       "severity": "warning"
     },
     "object-curly-spacing": {
-      "options": [
-        "always"
-      ],
+      "options": ["always"],
       "severity": "warning"
     },
     "object-literal-key-quotes": {
@@ -63,36 +53,24 @@
       "severity": "warning"
     },
     "object-literal-sort-keys": {
-      "options": [
-        "match-declaration-order"
-      ],
+      "options": ["match-declaration-order"],
       "severity": "warning"
     },
     "quotemark": {
-      "options": [
-        "single",
-        "jsx-double",
-        "avoid-escape"
-      ],
+      "options": ["single", "jsx-double", "avoid-escape"],
       "severity": "warning"
     },
+    "prettier": true,
     "semicolon": {
-      "options": [
-        "always",
-        "ignore-interfaces"
-      ],
+      "options": ["always", "ignore-interfaces"],
       "severity": "warning"
     },
     "space-in-parens": {
-      "options": [
-        "never"
-      ],
+      "options": ["never"],
       "severity": "warning"
     },
     "ter-arrow-parens": {
-      "options": [
-        "always"
-      ],
+      "options": ["always"],
       "severity": "warning"
     },
     "ter-indent": {
@@ -110,6 +88,5 @@
         "singleline": "never"
       }
     }
-  },
-  "rulesDirectory": []
+  }
 }
