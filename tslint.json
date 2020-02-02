@@ -1,0 +1,92 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-eslint-rules"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "comment-format": {
+      "options": ["check-space"],
+      "severity": "warning"
+    },
+    "eofline": false,
+    "interface-name": false,
+    "max-line-length": {
+      "options": [120]
+    },
+    "member-access": false,
+    "member-ordering": {
+      "options": {
+        "order": [
+          "public-static-field",
+          "public-static-method",
+          "protected-static-field",
+          "protected-static-method",
+          "private-static-field",
+          "private-static-method",
+          "public-constructor",
+          "protected-constructor",
+          "private-constructor",
+          "public-instance-field",
+          "protected-instance-field",
+          "private-instance-field",
+          "protected-instance-method",
+          "private-instance-method",
+          "public-instance-method"
+        ]
+      }
+    },
+    "no-reference": false,
+    "no-string-literal": false,
+    "no-extra-boolean-cast": {
+      "options": true,
+      "severity": "warning"
+    },
+    "no-multi-spaces": {
+      "options": [true],
+      "severity": "warning"
+    },
+    "object-curly-spacing": {
+      "options": ["always"],
+      "severity": "warning"
+    },
+    "object-literal-key-quotes": {
+      "options": "consistent-as-needed",
+      "severity": "warning"
+    },
+    "object-literal-sort-keys": {
+      "options": ["match-declaration-order"],
+      "severity": "warning"
+    },
+    "quotemark": {
+      "options": ["single", "jsx-double", "avoid-escape"],
+      "severity": "warning"
+    },
+    "prettier": true,
+    "semicolon": {
+      "options": ["always", "ignore-interfaces"],
+      "severity": "warning"
+    },
+    "space-in-parens": {
+      "options": ["never"],
+      "severity": "warning"
+    },
+    "ter-arrow-parens": {
+      "options": ["always"],
+      "severity": "warning"
+    },
+    "ter-indent": {
+      "options": [
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "severity": "warning"
+    },
+    "trailing-comma": {
+      "options": {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    }
+  }
+}
