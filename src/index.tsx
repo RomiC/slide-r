@@ -2,8 +2,13 @@ import React, {
   Children,
   MouseEventHandler,
   PointerEventHandler,
-  PureComponent
+  PureComponent,
+  ReactNode
 } from 'react';
+
+interface GoToFunction {
+  (slideIndex: number): void;
+}
 
 interface SliderProps {
   /**
@@ -28,6 +33,12 @@ interface SliderProps {
    * Slides
    */
   children: JSX.Element[];
+  /**
+   * Render controls function
+   * @param currentSlide Index of the current slide (starting from 0)
+   * @param goTo Scroll to slide by index
+   */
+  renderControls: (currentSlide: number, goTo: GoToFunction) => ReactNode;
 }
 
 interface SliderState {
@@ -96,7 +107,7 @@ export default class Slider extends PureComponent<SliderProps, SliderState> {
     };
   })();
 
-  private goTo: (slideIndex: number) => void = (slideIndex) => {
+  private goTo: GoToFunction = (slideIndex) => {
     const nextSlide = Math.max(
       Math.min(slideIndex, this.props.children.length),
       0
